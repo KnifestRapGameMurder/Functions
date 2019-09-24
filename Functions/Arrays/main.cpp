@@ -1,144 +1,66 @@
-#include<iostream>
-using namespace std;
-
-const int ROWS = 4;	//Количество строк двумерного массива
-const int COLS = 5;	//Количество элементов строки
-
-void FillRand(int Arr[], const int n);
-void FillRand(double Arr[], const int n);
-void FillRand(int Arr[ROWS][COLS], const int ROWS, const int COLS);
-
-void Print(int Arr[], const int n);
-void Print(double Arr[], const int n);
-void Print(int Arr[ROWS][COLS], const int ROWS, const int COLS);
-
-void Sort(int Arr[], const int n);
-void Sort(int Arr[ROWS][COLS], const int ROWS, const int COLS);
-
-int  Sum(int Arr[], const int n);
-double Avg(int Arr[], const int n);
-int  minValueIn(int Arr[], const int n);
+#include"Functions.h"
 
 void main()
 {
 	setlocale(LC_ALL, "");
 	const int n = 5;
 	int Arr[n];
-
+	cout << endl;
 	FillRand(Arr, n);
 	Print(Arr, n);
-	cout << "Сумма элементов масива:\t" << Sum(Arr, n) << endl;
-	cout << "Среднее арифметическое:\t" << Avg(Arr, n) << endl;
-	//cout << "Минимальное значение в массиве:\t" << minValueIn(Arr, n) << endl;
+	cout << "Сумма єлементов массива: " << Sum(Arr, n) << endl;
+	cout << "Среднее арифметическое єлементов массива: " << Avg(Arr, n) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(Arr, n) << endl;
+	cout << "Максимальное значение в массиве: " << maxValueIn(Arr, n) << endl;
 
 	double Brr[n];
 	FillRand(Brr, n);
 	Print(Brr, n);
+	Sort(Brr, n);
+	cout << "Сумма єлементов массива: " << Sum(Brr, n) << endl;
+	cout << "Среднее арифметическое єлементов массива: " << Avg(Brr, n) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(Brr, n) << endl;
+
+	float Drr[n];
+	FillRand(Drr, n);
+	Print(Drr, n);
+	cout << "Сумма єлементов массива: " << Sum(Drr, n) << endl;
+	cout << "Среднее арифметическое єлементов массива: " << Avg(Drr, n) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(Drr, n) << endl;
+
 
 	int Crr[ROWS][COLS];
 	FillRand(Crr, ROWS, COLS);
 	Print(Crr, ROWS, COLS);
-}
+	Sort(Crr, ROWS, COLS);
+	cout << DELIMITER << endl;
+	Print(Crr, ROWS, COLS);
+	cout << "Сумма массива: " << Sum(Crr, ROWS, COLS) << endl;;
+	cout << "Среднее арифметическое элементов массива: " << Avg(Crr, ROWS, COLS) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(Crr, ROWS, COLS) << endl;
+	cout << "Максимальное значение в массиве: " << maxValueIn(Crr, ROWS, COLS) << endl;
 
-void FillRand(int Arr[], const int n)
-{
-	//Заполнение случайными числами:
-	for (int i = 0; i < n; i++)
-	{
-		Arr[i] = rand() % 100;
-	}
-}
-void FillRand(double Arr[], const int n)
-{
-	//Заполнение случайными числами:
-	for (int i = 0; i < n; i++)
-	{
-		Arr[i] = rand() % 10000;
-		Arr[i] /= 100;
-	}
-}
+	double Err[ROWS][COLS];
+	FillRand(Err, ROWS, COLS);
+	Print(Err, ROWS, COLS);
+	Sort(Err, ROWS, COLS);
+	cout << DELIMITER << endl;
+	Print(Err, ROWS, COLS);
+	cout << "Сумма массива: " << Sum(Err, ROWS, COLS) << endl;;
+	cout << "Среднее арифметическое элементов массива: " << Avg(Err, ROWS, COLS) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(Err, ROWS, COLS) << endl;
+	cout << "Максимальное значение в массиве: " << maxValueIn(Err, ROWS, COLS) << endl;
 
-void FillRand(int Arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			Arr[i][j] = rand() % 100;
-		}
-	}
-}
+	float Frr[ROWS][COLS];
+	FillRand(Frr, ROWS, COLS);
+	Print(Frr, ROWS, COLS);
+	Sort(Frr, ROWS, COLS);
+	cout << DELIMITER << endl;
+	Print(Frr, ROWS, COLS);
+	cout << "Сумма массива: " << Sum(Frr, ROWS, COLS) << endl;;
+	cout << "Среднее арифметическое элементов массива: " << Avg(Frr, ROWS, COLS) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(Frr, ROWS, COLS) << endl;
+	cout << "Максимальное значение в массиве: " << maxValueIn(Frr, ROWS, COLS) << endl;
 
-void Print(int Arr[], const int n)
-{
-	//Вывод массива на экран:
-	for (int i = 0; i < n; i++)
-	{
-		cout << Arr[i] << "\t";
-	}
-	cout << endl;
-}
-void Print(double Arr[], const int n)
-{
-	//Вывод массива на экран:
-	for (int i = 0; i < n; i++)
-	{
-		cout << Arr[i] << "\t";
-	}
-	cout << endl;
-}
 
-void Print(int Arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			cout << Arr[i][j] << "\t";
-		}
-		cout << endl;
-	}
 }
-
-void Sort(int Arr[], const int n)
-{
-	//Сортировка массива:
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = i + 1; j < n; j++)
-		{
-			if (Arr[j] < Arr[i])
-			{
-				int buffer = Arr[i];
-				Arr[i] = Arr[j];
-				Arr[j] = buffer;
-			}
-		}
-	}
-}
-
-void Sort(int Arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	
-}
-
-int  Sum(int Arr[], const int n)
-{
-	int Sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		Sum += Arr[i];
-	}
-	return Sum;
-}
-
-double Avg(int Arr[], const int n)
-{
-	return (double)Sum(Arr, n) / n;
-}
-
-//int  minValueIn(int Arr[], const int n)
-//{
-//	int min = Arr[0];
-//
-//}
