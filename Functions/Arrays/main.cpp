@@ -2,7 +2,6 @@
 #include"Print.cpp"
 #include"FillRand.cpp"
 #include"Sort.cpp"
-#include"Sum.cpp"
 #include"Stat.cpp"
 
 void main()
@@ -22,7 +21,7 @@ void main()
 	cout << "Минимальное значение в массиве: " << minValueIn(Arr, n) << endl;
 	cout << "Максимальное значение в массиве: " << maxValueIn(Arr, n) << endl;
 	DEV
-	//	4
+	//	2
 	int Crr[ROWS][COLS];
 	FillRand(Crr, ROWS, COLS);
 	Print(Crr, ROWS, COLS);
@@ -34,14 +33,17 @@ void main()
 	cout << "Минимальное значение в массиве: " << minValueIn(Crr, ROWS, COLS) << endl;
 	cout << "Максимальное значение в массиве: " << maxValueIn(Crr, ROWS, COLS) << endl;
 	DEV
+	//	3
+	double Drr[ROWS][COLS];
+	FillRand(Drr, ROWS, COLS);
+	Print(Drr, ROWS, COLS);
+	cout << DELIMITER << endl;
+	Sort(Drr, ROWS, COLS);
+	Print(Drr, ROWS, COLS); cout << endl;
+	cout << "Сумма массива: " << Sum(Drr, ROWS, COLS) << endl;;
+	cout << "Среднее арифметическое элементов массива: " << Avg(Drr, ROWS, COLS) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(Drr, ROWS, COLS) << endl;
+	cout << "Максимальное значение в массиве: " << maxValueIn(Drr, ROWS, COLS) << endl;
+	DEV
 
 }
-
-
-
-
-
-
-
-
-

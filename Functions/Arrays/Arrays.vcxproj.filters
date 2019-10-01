@@ -27,10 +27,10 @@
     <ClCompile Include="Sort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sum.cpp">
+    <ClCompile Include="Stat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Stat.cpp">
+    <ClCompile Include="FillRandOverloads.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
