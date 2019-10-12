@@ -12,7 +12,7 @@ void main()
 {
 	setlocale(LC_ALL, "Rus");
 	const int SIZE = 9+1;
-	char Field[SIZE] = " ";	//Игровое поле
+	char Field[SIZE] = "";	//Игровое поле
 	PrintField(Field, SIZE);
 }
 
