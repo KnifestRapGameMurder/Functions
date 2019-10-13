@@ -27,18 +27,18 @@ int f(int n)
 
 void main()
 {
-	
+	setlocale(LC_ALL, "");
 	int a, n;
 	print(3);
-	
+	NEXT
 	cout << "—колько чисел ‘ибоначи вывести на экран: "; cin >> n; cout << endl;
 	if(n <= 0) cout << "\t\t!!!Error!!!" << endl;
 	else for (int i = 1; i <= n; i++) cout << f(i) << " ";
-	
+	NEXT
 	cout << "¬ведите основание степени: "; cin >> a; cout << endl;
 	cout << "¬ведите показатель степени: "; cin >> n; cout << endl;
 	cout << a << " ^ " << n << " = " << power(a, n) << endl;
-	
+	NEXT
 	cout << "\t	‘акториал числа	\n¬ведите число: "; cin >> n; cout << endl;
 	for (int i = 1; i <= n; i++)	i == n ? cout << i : cout << i << " * ";
 	cout << " = " << factr(n) << endl;
