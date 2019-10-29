@@ -5,7 +5,7 @@ using namespace std;
 #define BY_REFERENCE
 
 
-#ifdef BY_POITER
+#ifdef BY_POINTER
 template <typename T>
 void swap(T* a, T* b);
 #endif // BY_POITER
@@ -24,7 +24,7 @@ void main()
 }
 
 template<typename T>
-#ifdef BY_POITER
+#ifdef BY_POINTER
 void swap(T* a, T* b) 
 {
 	T* buffer = *a;
