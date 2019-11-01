@@ -9,7 +9,7 @@ void main()
 	double *Arr = new double[n] {};
 	for (int i = 0; i < n; i++)
 	{
-		*(Arr + i) = rand() % 100;
+		*(Arr + i) = rand() % 2;
 	}
 	for (int i = 0; i < n; i++)
 	{
