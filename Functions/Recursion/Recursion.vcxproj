@@ -23,7 +23,7 @@
     <ProjectGuid>{E6B65E88-0E50-4A4E-B43F-C809A2338D14}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Recursion</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

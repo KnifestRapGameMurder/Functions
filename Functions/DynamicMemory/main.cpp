@@ -2,19 +2,20 @@
 using namespace std;
 
 void print(int arr[], int n);
-void push_back(int arr[], int n);
-void push_front(int arr[], int n);
-void insert(int arr[], int n);
+int* push_back(int arr[], int& n,int value);
+int* push_front(int arr[], int& n,int value);
+int* insert(int arr[], int& n,int value);
 void main()
 {
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "Rus");
 	int n;
 	cout << "Введите размер массива: "; cin >> n;
 	int *arr = new int[n];
-	for (int i = 0; i < n; i++) cout << (arr[i] = rand() % 100) << "\t"; cout << endl;
-	insert(arr, n);
-	push_back(arr, n);
-	push_front(arr, n);
+	for (int i = 0; i < n; i++) cout << (arr[i] = rand()%100) << "\t"; cout << endl;
+	int value;
+	cout << "Введите добавляемое значение: "; cin >> value;
+	arr = insert(arr, n,value);
+	print(arr, n);
 	delete[] arr;
 }
 
@@ -22,11 +23,11 @@ void print(int arr[], int n)
 {
 	for (int i = 0; i < n; i++) cout << arr[i] << "\t"; cout << endl;
 }
-void push_back(int arr[],int n)
+int* push_back(int arr[],int& n,int value)
 {
 	//Добавление элемента в конец массива
-	int value;
-	cout << "Введите добавляемое значение: "; cin >> value;
+	
+	
 	//1)Создаем буфферный массив размером на 1 элемент больше
 	int* buffer = new int[n + 1]{};
 	//2)Копируем содержимое исходного массива в новый
@@ -35,14 +36,15 @@ void push_back(int arr[],int n)
 	delete[] arr;
 	arr = buffer;
 	arr[n] = value;
-	n++;
-	print(arr, n);
+	n++; 
+	return arr;
+	
 }
-void push_front(int arr[], int n)
+int* push_front(int arr[], int& n,int value)
 {
 	//Добавление элемента в конец массива
-	int value;
-	cout << "Введите добавляемое значение: "; cin >> value;
+	
+
 	//1)Создаем буфферный массив размером на 1 элемент больше
 	int* buffer = new int[n + 1]{};
 	//2)Копируем содержимое исходного массива в новый
@@ -52,14 +54,12 @@ void push_front(int arr[], int n)
 	arr = buffer;
 	arr[0] = value;
 	n++;
-	print(arr, n);
+	return arr;
 }
-void insert(int arr[], int n)
+int* insert(int arr[], int& n,int value)
 {
 	//Добавление элемента в конец массива
-	int value;
 	int index;
-	cout << "Введите добавляемое значение: "; cin >> value;
 	cout << "Введите индекс: "; cin >> index;
 	//1)Создаем буфферный массив размером на 1 элемент больше
 	int* buffer = new int[n + 1]{};
@@ -70,5 +70,5 @@ void insert(int arr[], int n)
 	arr = buffer;
 	arr[index] = value;
 	n++;
-	print(arr, n);
+	return arr;
 }
