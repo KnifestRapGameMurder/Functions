@@ -5,8 +5,16 @@ using namespace std;
 void print(int arr[], int n);
 int* push_back(int arr[], int& n,int value);
 int* push_front(int arr[], int& n,int value);
+int* insert(int arr[], int& n, int value);
+
 int** push_row_back(int** arr, int& m, const int n);
-int* insert(int arr[], int& n,int value);
+int** push_row_front(int** arr, int& m, const int n);
+int** insert_row(int** arr, int& m, const int n,int& index);
+
+int** pop_row_back(int** arr, int& m, const int n);
+int** pop_row_front(int** arr, int& m, const int n);
+int** erase_row(int** arr, int& m, const int n, int& index);
+
 void FillRand(int** Arr, const int m, const int n);
 void Print(int** Arr, const int m, const int n);
 
@@ -24,6 +32,20 @@ void main()
 	FillRand(Arr, m, n);
 	Print(Arr, m, n);
 	Arr = push_row_back(Arr, m, n);
+	Print(Arr, m, n);
+	Arr = push_row_front(Arr, m, n);
+	Print(Arr, m, n);
+	int index;
+	do { cout << "¬ведите индекс добавл€емой строки: "; cin >> index; } while (index >= m);
+	Arr = insert_row(Arr, m, n, index);
+	Print(Arr, m, n);
+	cout << "____________________________________________________________________\n" << endl;
+	Arr = pop_row_back(Arr, m, n);
+	Print(Arr, m, n);
+	Arr = pop_row_front(Arr, m, n);
+	Print(Arr, m, n);
+	do { cout << "¬ведите индекс отнимаемой строки: "; cin >> index; } while (index >= m);
+	Arr = erase_row(Arr, m, n, index);
 	Print(Arr, m, n);
 	/////////////////////////////////////////////////////////////////////
 	for (int i = 0; i < m; i++) delete[] Arr[i];
@@ -72,6 +94,78 @@ int** push_row_back(int** arr, int& m, const int n)
 	arr = buffer;
 	arr[m] = new int[n] {};
 	m++;
+	return arr;
+}
+int** push_row_front(int** arr, int& m, const int n)
+{
+	int** buffer = new int*[m + 1];
+	for (int i = 1; i < m+1; i++)	buffer[i] = new int[n];
+	for (int i = 1; i < m+1; i++)
+	{
+		for (int j = 0; j < n; j++)	buffer[i][j] = arr[i-1][j];
+		delete[] arr[i-1];
+	}
+	delete arr;
+	arr = buffer;
+	arr[0] = new int[n] {};
+	m++;
+	return arr;
+}
+int** insert_row(int** arr, int& m, const int n,int& index)
+{
+	int** buffer = new int*[m + 1];
+	for (int i = 0; i < m; i++)	i < index ? buffer[i] = new int[n] : buffer[i + 1] = new int[n];
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++) i < index ? buffer[i][j] = arr[i][j] : buffer[i + 1][j] = arr[i][j];
+		delete[] arr[i];
+	}
+	delete arr;
+	arr = buffer;
+	arr[index] = new int[n] {};
+	m++;
+	return arr;
+}
+int** pop_row_back(int** arr, int& m, const int n)
+{
+	int** buffer = new int*[m-1];
+	for (int i = 0; i < m-1; i++)	buffer[i] = new int[n];
+	for (int i = 0; i < m-1; i++)
+	{
+		for (int j = 0; j < n; j++)	buffer[i][j] = arr[i][j];
+		delete[] arr[i];
+	}
+	delete arr;
+	arr = buffer;
+	m--;
+	return arr;
+}
+int** pop_row_front(int** arr, int& m, const int n)
+{
+	int** buffer = new int*[m - 1];
+	for (int i = 0; i < m - 1; i++)	buffer[i] = new int[n];
+	for (int i = 0; i < m - 1; i++)
+	{
+		for (int j = 0; j < n; j++)	buffer[i][j] = arr[i + 1][j];
+		delete[] arr[i];
+	}
+	delete arr;
+	arr = buffer;
+	m--;
+	return arr;
+}
+int** erase_row(int** arr, int& m, const int n, int& index)
+{
+	int** buffer = new int*[m - 1];
+	for (int i = 0; i < m-1; i++)	buffer[i] = new int[n];
+	for (int i = 0; i < m-1; i++)
+	{
+		for (int j = 0; j < n; j++) i < index ? buffer[i][j] = arr[i][j] : buffer[i][j] = arr[i+1][j];
+		delete[] arr[i];
+	}
+	delete arr;
+	arr = buffer;
+	m--;
 	return arr;
 }
 
