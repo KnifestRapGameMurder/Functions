@@ -7,6 +7,10 @@ int* push_back(int arr[], int& n,int value);
 int* push_front(int arr[], int& n,int value);
 int* insert(int arr[], int& n, int value);
 
+int* pop_back(int arr[], int& n, int value);
+int* pop_front(int arr[], int& n, int value);
+int* erase(int arr[], int& n, int value);
+
 int** push_row_back(int** arr, int& m, const int n);
 int** push_row_front(int** arr, int& m, const int n);
 int** insert_row(int** arr, int& m, const int n,int& index);
@@ -126,6 +130,7 @@ int** insert_row(int** arr, int& m, const int n,int& index)
 	m++;
 	return arr;
 }
+
 int** pop_row_back(int** arr, int& m, const int n)
 {
 	int** buffer = new int*[m-1];
@@ -173,6 +178,7 @@ void print(int arr[], int n)
 {
 	for (int i = 0; i < n; i++) cout << arr[i] << "\t"; cout << endl;
 }
+
 int* push_back(int arr[],int& n,int value)
 {
 	//Добавление элемента в конец массива
@@ -188,8 +194,18 @@ int* push_back(int arr[],int& n,int value)
 	arr[n] = value;
 	n++; 
 	return arr;
-	
 }
+int* pop_back(int arr[], int& n, int value)
+{
+	int* buffer = new int[n - 1]{};
+	for (int i = 0; i < n-1; i++) buffer[i] = arr[i];
+	delete[] arr;
+	arr = buffer;
+	n--;
+	return arr;
+
+}
+
 int* push_front(int arr[], int& n,int value)
 {
 	//Добавление элемента в конец массива
@@ -206,6 +222,16 @@ int* push_front(int arr[], int& n,int value)
 	n++;
 	return arr;
 }
+int* pop_front(int arr[], int& n, int value)
+{
+	int* buffer = new int[n - 1]{};
+	for (int i = 0; i < n-1; i++) buffer[i + 1] = arr[i+1];
+	delete[] arr;
+	arr = buffer;
+	n--;
+	return arr;
+}
+
 int* insert(int arr[], int& n,int value)
 {
 	int index;		
@@ -219,9 +245,15 @@ int* insert(int arr[], int& n,int value)
 	n++;
 	return arr;
 }
-//int* insert(int* arr, int& n, int value, int index)
-//{
-//	int* buffer = new int[n + 1];
-//	for (int i = 0; i < index; i++)	buffer[i] = arr[i];
-//	for(int i=index;i<n;i++)	buffer[]
-//}
+int* erase(int arr[], int& n, int value)
+{
+	int index;
+	cout << "Введите индекс: "; cin >> index;
+	if (index > n)	return arr;
+	int* buffer = new int[n - 1]{};
+	for (int i = 0; i < n-1; i++) i < index ? buffer[i] = arr[i] : buffer[i] = arr[i+1];
+	delete[] arr;
+	arr = buffer;
+	n--;
+	return arr;
+}
