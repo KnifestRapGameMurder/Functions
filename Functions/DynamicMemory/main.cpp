@@ -2,6 +2,7 @@
 using namespace std;
 
 //#define DYNAMIC_MEMORY_1 
+
 void print(int arr[], int n);
 int* push_back(int arr[], int& n,int value);
 int* push_front(int arr[], int& n,int value);
@@ -87,7 +88,7 @@ void Print(int** Arr, const int m, const int n)
 
 int** push_row_back(int** arr, int& m, const int n)
 {
-	int** buffer = new int*[m + 1];
+	/*int** buffer = new int*[m + 1];
 	for (int i = 0; i < m; i++)	buffer[i] = new int[n];
 	for (int i = 0; i < m; i++)
 	{
@@ -98,8 +99,16 @@ int** push_row_back(int** arr, int& m, const int n)
 	arr = buffer;
 	arr[m] = new int[n] {};
 	m++;
+	return arr;*/
+	int** buffer = new int*[m + 1];
+	for (int i = 0; i < m; i++)	buffer[i] = arr[i];
+	delete arr;
+	arr = buffer;
+	arr[m] = new int[n] {};
+	m++;
 	return arr;
 }
+
 int** push_row_front(int** arr, int& m, const int n)
 {
 	int** buffer = new int*[m + 1];
