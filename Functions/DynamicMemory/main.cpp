@@ -1,20 +1,25 @@
 #include"Functions.h"
+#include"2DdynamicArr.cpp"
+#include"1DdynamicArr.cpp"
+
+typedef char DataType;
 
 void main()
 {
 	setlocale(LC_ALL, "Rus");
 #ifdef DYNAMIC_MEMORY_2
+
 	int m; //Количество строк
 	int n; //Количество элементов строки
 	cout << "Введите количество строк: "; cin >> m;
 	cout << "Введите количество элементов строки: "; cin >> n;
-	int** Arr = allocate(m, n);
+	DataType** Arr = allocate<DataType>(m, n);
 	//////////////////////////////////////////////////////////////////////
 	//			Испоьзование двумерного динамического массива
 	FillRand(Arr, m, n);
 	Print(Arr, m, n);
 #ifdef PUSH_ROW
-	Arr = push_row_back(Arr, m, n);
+	push_row_back(Arr, m, n);
 	Print(Arr, m, n);
 	Arr = push_row_front(Arr, m, n);
 	Print(Arr, m, n);
@@ -37,7 +42,7 @@ void main()
 	Print(Arr, m, n);
 	Arr = push_col_front(Arr, m, n);
 	Print(Arr, m, n);
-	int index;
+	T index;
 	do { cout << "Введите индекс добавляемой колоны: "; cin >> index; } while (index >= n);
 	insert_col(Arr, m, n, index);
 	Print(Arr, m, n);
@@ -60,7 +65,7 @@ void main()
 #ifdef DYNAMIC_MEMORY_1
 	int n;
 	cout << "Введите размер массива: "; cin >> n;
-	int *arr = new int[n];
+	itn *arr = new T[n];
 	fill(arr, n);
 	print(arr, n);
 	int value;

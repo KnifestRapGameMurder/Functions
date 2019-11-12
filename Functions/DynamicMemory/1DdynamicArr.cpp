@@ -1,22 +1,21 @@
 #include"Functions.h"
 
-void fill(int arr[], int n)
+template <typename T>	void fill(T arr[], int n)
 {
 	for (int i = 0; i < n; i++) (arr[i] = rand() % 100);
 }
-void print(int arr[], int n)
+template <typename T>	void print(T arr[], int n)
 {
 	for (int i = 0; i < n; i++) cout << arr[i] << "\t"; cout << endl;
 }
 
-
-int* push_back(int arr[], int& n, int value)
+template <typename T>	T* push_back(T arr[], int& n, T value)
 {
 	//Добавление элемента в конец массива
 
 
 	//1)Создаем буфферный массив размером на 1 элемент больше
-	int* buffer = new int[n + 1]{};
+	T* buffer = new T[n + 1]{};
 	//2)Копируем содержимое исходного массива в новый
 	for (int i = 0; i < n; i++) buffer[i] = arr[i];
 	//3)Удаляем исходный массив из памяти
@@ -26,9 +25,9 @@ int* push_back(int arr[], int& n, int value)
 	n++;
 	return arr;
 }
-int* pop_back(int arr[], int& n, int value)
+template <typename T>	T* pop_back(T arr[], int& n, T value)
 {
-	int* buffer = new int[n - 1]{};
+	T* buffer = new T[n - 1]{};
 	for (int i = 0; i < n - 1; i++) buffer[i] = arr[i];
 	delete[] arr;
 	arr = buffer;
@@ -37,13 +36,13 @@ int* pop_back(int arr[], int& n, int value)
 
 }
 
-int* push_front(int arr[], int& n, int value)
+template <typename T>	T* push_front(T arr[], int& n, T value)
 {
 	//Добавление элемента в конец массива
 
 
 	//1)Создаем буфферный массив размером на 1 элемент больше
-	int* buffer = new int[n + 1]{};
+	T* buffer = new T[n + 1]{};
 	//2)Копируем содержимое исходного массива в новый
 	for (int i = 0; i < n; i++) buffer[i + 1] = arr[i];
 	//3)Удаляем исходный массив из памяти
@@ -53,9 +52,9 @@ int* push_front(int arr[], int& n, int value)
 	n++;
 	return arr;
 }
-int* pop_front(int arr[], int& n, int value)
+template <typename T>	T* pop_front(T arr[], int& n, T value)
 {
-	int* buffer = new int[n - 1]{};
+	T* buffer = new T[n - 1]{};
 	for (int i = 0; i < n - 1; i++) buffer[i + 1] = arr[i + 1];
 	delete[] arr;
 	arr = buffer;
@@ -63,12 +62,12 @@ int* pop_front(int arr[], int& n, int value)
 	return arr;
 }
 
-int* insert(int arr[], int& n, int value)
+template <typename T>	T* insert(T arr[], int& n, T value)
 {
 	int index;
 	cout << "Введите индекс: "; cin >> index;
 	if (index > n)	return arr;
-	int* buffer = new int[n + 1]{};
+	T* buffer = new T[n + 1]{};
 	for (int i = 0; i < n; i++) i < index ? buffer[i] = arr[i] : buffer[i + 1] = arr[i];
 	delete[] arr;
 	arr = buffer;
@@ -76,12 +75,12 @@ int* insert(int arr[], int& n, int value)
 	n++;
 	return arr;
 }
-int* erase(int arr[], int& n, int value)
+template <typename T>	T* erase(T arr[], int& n, T value)
 {
 	int index;
 	cout << "Введите индекс: "; cin >> index;
 	if (index > n)	return arr;
-	int* buffer = new int[n - 1]{};
+	T* buffer = new T[n - 1]{};
 	for (int i = 0; i < n - 1; i++) i < index ? buffer[i] = arr[i] : buffer[i] = arr[i + 1];
 	delete[] arr;
 	arr = buffer;
