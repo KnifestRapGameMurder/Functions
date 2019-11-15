@@ -33,9 +33,9 @@ template <typename T>	T** push_row_back(T** arr, int& m, const int n)
 	return arr;*/
 	T** buffer = new T*[m + 1];
 	for (int i = 0; i < m; i++)	buffer[i] = arr[i];
-	delete arr;
+	delete[] arr;
 	arr = buffer;
-	arr[m] = new T[n] {};
+	arr[m] = new T[n]{};
 	m++;
 	return arr;
 }
@@ -55,7 +55,7 @@ template <typename T>	T** push_row_front(T** arr, int& m, const int n)
 	return arr;*/
 	T** buffer = new T*[m + 1];
 	for (int i = 0; i < m; i++)	buffer[i + 1] = arr[i];
-	delete arr;
+	delete[] arr;
 	arr = buffer;
 	arr[0] = new T[n] {};
 	m++;
@@ -77,7 +77,7 @@ template <typename T>	T** insert_row(T** arr, int& m, const int n, int& index)
 	return arr;*/
 	T** buffer = new T*[m + 1];
 	for (int i = 0; i < m; i++)	i < index ? buffer[i] = arr[i] : buffer[i + 1] = arr[i];
-	delete arr;
+	delete[] arr;
 	arr = buffer;
 	arr[index] = new T[n] {};
 	m++;

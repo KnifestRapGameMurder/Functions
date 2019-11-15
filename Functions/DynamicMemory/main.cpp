@@ -3,6 +3,7 @@
 #include"1DdynamicArr.cpp"
 
 typedef char DataType;
+typedef DataType SecondType;
 
 void main()
 {
@@ -42,7 +43,7 @@ void main()
 	Print(Arr, m, n);
 	Arr = push_col_front(Arr, m, n);
 	Print(Arr, m, n);
-	T index;
+	DataType index;
 	do { cout << "¬ведите индекс добавл€емой колоны: "; cin >> index; } while (index >= n);
 	insert_col(Arr, m, n, index);
 	Print(Arr, m, n);
@@ -63,12 +64,12 @@ void main()
 
 
 #ifdef DYNAMIC_MEMORY_1
-	int n;
+	DataType n;
 	cout << "¬ведите размер массива: "; cin >> n;
 	itn *arr = new T[n];
 	fill(arr, n);
 	print(arr, n);
-	int value;
+	DataType value;
 	cout << "¬ведите добавл€емое значение: "; cin >> value;
 	arr = push_back(arr, n,value);
 	print(arr, n);
