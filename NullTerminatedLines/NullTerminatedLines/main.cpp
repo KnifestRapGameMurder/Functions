@@ -4,6 +4,12 @@ using namespace std;
 
 void inputLine(char str[], const int n);
 int StrLen(char str[]);
+char UpperCase(int& str, const int n);
+char LowerCase(int& str, const int n);
+char Capitalize(int& str, const int n);
+char Shrink(int& str, const int n);
+char RemoveSpaces(int& str, const int n);
+
 
 void main()
 {
@@ -33,4 +39,31 @@ int StrLen(char str[])
 	int i = 0;
 	for (; str[i]; i++);
 	return i;
+}
+char UpperCase(int& str, const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		if (str[i] > 96 && str[i] < 123)
+		{
+
+		}
+	}
+	return str;
+}
+char LowerCase(int& str, const int n)
+{
+	return str;
+}
+char Capitalize(int& str, const int n)
+{
+	return str;
+}
+char Shrink(int& str, const int n)
+{
+	return str;
+}
+char RemoveSpaces(int& str, const int n)
+{
+	return str;
 }
