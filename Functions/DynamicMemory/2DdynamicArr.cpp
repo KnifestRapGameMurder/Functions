@@ -17,7 +17,7 @@ template <typename T>	void Print(T** Arr, const int m, const int n)
 	}cout << endl;
 }
 
-template <typename T>	T** push_row_back(T** arr, int& m, const int n)
+template <typename T>	T** push_row_back(T**& arr, int& m, const int n)
 {
 	/*int** buffer = new int*[m + 1];
 	for (int i = 0; i < m; i++)	buffer[i] = new int[n];

@@ -2,7 +2,7 @@
 #include"2DdynamicArr.cpp"
 #include"1DdynamicArr.cpp"
 
-typedef char DataType;
+typedef int DataType;
 typedef DataType SecondType;
 
 void main()
@@ -20,7 +20,8 @@ void main()
 	FillRand(Arr, m, n);
 	Print(Arr, m, n);
 #ifdef PUSH_ROW
-	push_row_back(Arr, m, n);
+
+	push_row_back(Arr, m, n);		//+++++++++
 	Print(Arr, m, n);
 	Arr = push_row_front(Arr, m, n);
 	Print(Arr, m, n);

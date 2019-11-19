@@ -21,7 +21,7 @@ template <typename T>	T* pop_back(T arr[], int& n, T value);
 template <typename T>	T* pop_front(T arr[], int& n, T value);
 template <typename T>	T* erase(T arr[], int& n, T value);
 
-template <typename T>	T** push_row_back(T** arr, int& m, const int n);
+template <typename T>	T** push_row_back(T**& arr, int& m, const int n);
 template <typename T>	T** push_row_front(T** arr, int& m, const int n);
 template <typename T>	T** insert_row(T** arr, int& m, const int n, int& index);
 
