@@ -23,19 +23,19 @@ void main()
 
 	push_row_back(Arr, m, n);		//+++++++++
 	Print(Arr, m, n);
-	Arr = push_row_front(Arr, m, n);
+	push_row_front(Arr, m, n);
 	Print(Arr, m, n);
 	int index;
 	do { cout << "¬ведите индекс добавл€емой строки: "; cin >> index; } while (index >= m);
-	Arr = insert_row(Arr, m, n, index);
+	insert_row(Arr, m, n, index);
 	Print(Arr, m, n);
 	cout << "____________________________________________________________________\n" << endl;
-	Arr = pop_row_back(Arr, m, n);
+	pop_row_back(Arr, m, n);
 	Print(Arr, m, n);
-	Arr = pop_row_front(Arr, m, n);
+	pop_row_front(Arr, m, n);
 	Print(Arr, m, n);
 	do { cout << "¬ведите индекс отнимаемой строки: "; cin >> index; } while (index >= m);
-	Arr = erase_row(Arr, m, n, index);
+	erase_row(Arr, m, n, index);
 	Print(Arr, m, n);
 #endif											// PUSH_ROW
 
