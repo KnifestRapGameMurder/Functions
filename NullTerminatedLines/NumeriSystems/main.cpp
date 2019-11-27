@@ -4,6 +4,7 @@ using namespace std;
 
 char* DecToBin(int dec);
 int BinToDec(char* binary, int n);
+void isBin(char* binary, int n);
 
 void main()
 {
@@ -46,4 +47,16 @@ int BinToDec(char* binary,int n)
 		dec = (dec * 2) + binary[i]-48;
 	}
 	return dec;
+}
+
+void isBin(char* binary, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		if (binary[i] - 48 != 0 && binary[i] - 48 != 1)
+		{
+			cout << "Not binary!!!" << endl;
+			return;
+		}
+	}
 }
