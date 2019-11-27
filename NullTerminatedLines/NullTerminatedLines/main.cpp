@@ -25,18 +25,18 @@ void main()
 	cout << "Ââåäèòå ñòğîêó: "; 
 	inputLine(str, n);
 	cout << str << endl;
-	cout << StrLen(str) << endl;
+	cout <<"Äëèíà ñòğîêè: " << StrLen(str) << endl;
 	isPalindrome(str, n);
 	Capitalize(str, n);
-	cout << str << endl;
+	cout << "Capitalize:	" << str << endl;
 	UpperCase(str, n);
-	cout << str << endl;
+	cout << "UpperCase:	" << str << endl;
 	LowerCase(str, n);
-	cout << str << endl;
+	cout << "LowerCase:	" << str << endl;
 	Shrink(str, n);
-	cout << str << endl;
+	cout << "Shrink:	" << str << endl;
 	RemoveSpaces(str, n);
-	cout << str << endl;
+	cout << "RemoveSpaces:	" << str << endl;
 }
 
 void inputLine(char str[], const int n)
@@ -54,15 +54,15 @@ int StrLen(char str[])
 }
 void UpperCase(char str[], const int n)
 {
-	for (int i = 0; str[i]; i++)	if (((int)str[i] > 96 && (int)str[i] < 123) || ((int)str[i] > 223 && (int)str[i] < 256))	str[i] = (int)str[i] - 32;
+	for (int i = 0; str[i]; i++)	if ((int)str[i] > 96 && (int)str[i] < 123)	str[i] = (int)str[i] - 32;
 }
 void LowerCase(char str[], const int n)
 {
-	for (int i = 0; str[i]; i++)	if (((int)str[i] > 64 && (int)str[i] < 91) || ((int)str[i] > 191 && (int)str[i] < 224))	str[i] = (int)str[i] + 32;
+	for (int i = 0; str[i]; i++)	if ((int)str[i] > 64 && (int)str[i] < 91)	str[i] = (int)str[i] + 32;
 }
 void Capitalize(char str[], const int n)
 {
-	for (int i = 0; str[i]; i++)	if (((int)str[i] > 96 && (int)str[i] < 123 || (int)str[i] > 223 && (int)str[i] < 256) && ((int)str[i-1]==32|| i==0))	str[i] = (int)str[i] - 32;
+	for (int i = 0; str[i]; i++)	if (((int)str[i] > 96 && (int)str[i] < 123) && ((int)str[i-1]==32|| i==0))	str[i] = (int)str[i] - 32;
 }
 void Shrink(char str[], const int n)
 {
