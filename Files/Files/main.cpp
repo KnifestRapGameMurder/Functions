@@ -7,51 +7,68 @@
 #include<iostream>
 #include<fstream>
 
-#define WRITE_TO_FILE
-#define READ_FROM_FILE
+
 
 void main()
 {
 	setlocale(LC_ALL, "");
 
-#ifdef READ_FROM_FILE
+	int p = 0;
+	bool txt = 0;
 	std::ifstream fin;
 	const int t = 256;
-	char source_file_name[t] = {};
+	char src_f_name[t] = {};
 	std::cout << "Введите имя файла: ";
-	std::cin.getline(source_file_name, t);	std::cout << std::endl;
-	fin.open(source_file_name);
+	std::cin.getline(src_f_name, t);
+	while (p < t||!txt)
+	{
+		p++;
+		if (src_f_name[p] == '.'&&src_f_name[p + 1] == 't'&&src_f_name[p + 2] == 'x'&&src_f_name[p + 3] == 't') txt = 1;
+	};
+	p = 0;
+	while (p < t&&!txt)
+	{
+		p++;
+		if (src_f_name[p] == 0)
+		{
+			src_f_name[p] = '.';
+			src_f_name[p + 1] = 't';
+			src_f_name[p + 2] = 'x';
+			src_f_name[p + 3] = 't';
+		}
+		txt = 1;
+	};
+	std::cout << std::endl;
+	fin.open(src_f_name);
 
 	const int n = 256;
 	char sz_buffer[n] = {};
 
+	std::ofstream fout;	
+	const int e = 256;
+	char fnl_f_name[t] = {};
+	std::cout << "Введите имя файла: ";
+	std::cin.getline(fnl_f_name, t);	std::cout << std::endl;
+	fout.open(fnl_f_name, std::ios::app);
+	p = 1;
 	while (!fin.eof())
 	{
-		//fin >> sz_buffer;
 		fin.getline(sz_buffer, n);
-		std::cout << sz_buffer << std::endl;
+		int i = 0;
+		fout << "host 404-"<< p++ <<"\n{\n\t\t hardware ethernet \t\t";
+		do{
+			fout << sz_buffer[i]; i++;
+		} while (sz_buffer[i] != '\t');
+		fout << ";\n\t\t fixed-address \t\t\t";
+		while (sz_buffer[i] == '\t') { i++; };
+		do { fout << sz_buffer[i]; i++; } while (sz_buffer[i] != 0);
+		fout << ";\n}\n\n";
 	}
-
-	fin.close();
-#endif // READ_FROM_FILE
-
-#ifdef WRITE_TO_FILE
-	/*std::cout << "Hello World";*/
-	std::ofstream fout;	//Ñîçäàíèå ïîòîêà
-	const int e = 256;
-	char final_file_name[t] = {};
-	std::cout << "Введите имя файла: ";
-	std::cin.getline(final_file_name, t);	std::cout << std::endl;
-	fout.open(final_file_name, std::ios::app);
-
-	fout << sz_buffer << std::endl;
 	
-	/*fout.open("AnotherFile.txt");
-	fout << "Sam privet";*/
-
+	fin.close();
 	fout.close();
 
-	/*system("notepad");*/
-#endif // WRITE_TO_FILE
-
+	char command[n] = "notepad ";
+	strcat_s(command, fnl_f_name);
+	system(command);
 }
